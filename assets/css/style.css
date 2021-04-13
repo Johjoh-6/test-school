@@ -1,0 +1,292 @@
+/* Reset */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Perso  */
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.clear:before,
+.clear:after {
+    content: ' ';
+    display: table;
+}
+
+.clear:after {
+    clear: both;
+}
+
+.clear {
+    *zoom: 1;
+}
+
+button:focus {
+    outline: 0;
+}
+
+/* root */
+:root {
+    --header-color: #656667;
+    --header-hover: #474849;
+    --h-color: #06C;
+    --color-text: #666;
+    --a-color: #007bff;
+    --color-white: #fff;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+}
+
+/* Body and all */
+body {
+    margin: 0 auto;
+    font-family: 'Lato', Arial, sans-serif;
+    font-size: 20px;
+}
+
+p {
+    color: var(--color-text);
+    line-height: 1.9;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+    line-height: 2;
+    color: var(--color-text);
+}
+
+i {
+    color: #ABC;
+}
+
+.fa,
+.fas {
+    font-weight: 900;
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    color: var(--h-color);
+}
+
+h3 {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    color: var(--h-color);
+}
+
+
+
+/* header */
+header {
+    background-color: var(--header-color);
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas:
+        "title menu-nav"
+        "parallax parallax";
+}
+
+#title {
+    width: 480px;
+    grid-area: title;
+    padding: 15px 15px 55px 15px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--color-white);
+}
+
+#title span {
+    font-size: 1.4rem;
+    color: var(--color-white);
+}
+
+.menu {
+    grid-area: menu-nav;
+    width: 960px;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.nav-top {
+    font-size: 1.4rem;
+    transform: skew(-20deg, 0);
+}
+
+.nav-top > a {
+    color: var(--color-white);
+    padding: 14px 50px;
+    transform: skew(20deg, 0);
+}
+
+#parallax {
+    grid-area: parallax;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url('/img/apple-destock.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: overlay;
+    color: white;
+    transition: 4ms;
+
+}
+
+.selected {
+    background-color: var(--header-hover);
+    
+}
