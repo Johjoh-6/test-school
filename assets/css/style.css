@@ -104,7 +104,7 @@ section {
 }
 
 body {
-    line-height: 1;
+    line-height: 1.5;
 }
 
 ol,
@@ -158,7 +158,7 @@ button:focus {
     outline: 0;
 }
 
-/* root */
+/* Variable */
 :root {
     --header-color: #656667;
     --header-hover: #474849;
@@ -166,6 +166,8 @@ button:focus {
     --color-text: #666;
     --a-color: #007bff;
     --color-white: #fff;
+    --stripped-color: rgb(73, 73, 73);
+    --background-service: #f2f2f2;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -189,9 +191,15 @@ a {
     text-decoration: none;
 }
 
-ul li {
+ul {
     list-style: none;
     line-height: 2;
+    color: var(--color-text);
+}
+
+li {
+    list-style: none;
+    /* line-height: 2; */
     color: var(--color-text);
 }
 
@@ -223,22 +231,71 @@ h3 {
 header {
     background-color: var(--header-color);
     width: 100%;
+    height: 820px;
     margin: 0 auto;
     display: grid;
     grid-template-areas:
+        "stripped-large stripped-large"
+        "stripped-mid stripped-mid"
+        "stripped-bot stripped-bot"
         "title menu-nav"
-        "parallax parallax";
+        "stripped-a stripped-a"
+        "parallax parallax"
+        "stripped-b stripped-b";
+}
+
+.stripped {
+    background: repeating-linear-gradient(130deg,
+            var(--header-color),
+            var(--header-color) 0.8px,
+            var(--stripped-color) 2px,
+            var(--stripped-color) 4px);
+    height: 20px;
+}
+
+.stripped-large {
+    grid-area: stripped-large;
+    background: repeating-linear-gradient(130deg,
+            var(--header-color),
+            var(--header-color) 0.8px,
+            var(--stripped-color) 2px,
+            var(--stripped-color) 4px);
+    height: 60px;
+
+}
+
+.stripped-mid {
+    grid-area: stripped-mid;
+    width: 69%;
+    justify-self: end;
+    margin-top: 20px;
+}
+
+.stripped-bot {
+    grid-area: stripped-bot;
+    width: 62%;
+    justify-self: end;
+    margin-top: 20px;
+}
+
+#stripped-a {
+    grid-area: stripped-a;
+}
+
+#stripped-b {
+    grid-area: stripped-b;
 }
 
 #title {
-    width: 480px;
     grid-area: title;
-    padding: 15px 15px 55px 15px;
+    padding: 0px 15px 55px 15px;
+
 }
 
 h1 {
     font-size: 3rem;
     color: var(--color-white);
+    margin-bottom: 8px;
 }
 
 #title span {
@@ -246,47 +303,230 @@ h1 {
     color: var(--color-white);
 }
 
+#phone-menu {
+    display: none;
+}
+
 .menu {
     grid-area: menu-nav;
-    width: 960px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    justify-self: end;
+    
+
 }
 
 .menu ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-}
-
-.nav-top {
-    font-size: 1.4rem;
-    transform: skew(-20deg, 0);
-}
-
-.nav-top > a {
-    color: var(--color-white);
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 1rem;
     padding: 14px 50px;
-    transform: skew(20deg, 0);
+    
+    
 }
-
+.nav-top {
+    display: block;
+    font-size: 1.4rem;
+    margin-right: 20px;
+    transition: all 0.3s ease;  
+    
+    
+}
+.link-nav {
+    color: var(--color-white);
+    padding: 21px 50px;
+    z-index: 5;
+    position: relative;
+    
+}
+.link-nav::before {
+    content: " ";
+    position: absolute;
+    transform: skew(-20deg, 0);
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+	left: 0;
+}
+.link-nav.selected::before, .link-nav:hover::before {
+    background-color: var(--header-hover);
+}
 #parallax {
     grid-area: parallax;
     width: 100%;
-    height: 40vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-image: url('/img/apple-destock.jpeg');
+    height: 480px;
+    background-image: url('/assets/img/computer-works.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-blend-mode: overlay;
     color: white;
     transition: 4ms;
-
 }
 
-.selected {
-    background-color: var(--header-hover);
+/* main */
+/* first part */
+#introducing {
+    display: grid;
+    grid-template-areas:
+    "title title title"
+    "left-intro mid-intro right-intro";
+    width: 100%;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 100px;
+    column-gap: 30px;
+}
+#title-intro {
+    grid-area: title;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-size: 2.6rem; 
+
+}
+#left-intro{
+    grid-area: left-intro;
+}
+#mid-intro{
+    grid-area: mid-intro;
+}
+#right-intro{
+    grid-area: right-intro;
+}
+#introducing i {
+    margin-bottom: 40px;
+    padding: 30px 30px;
+}
+#introducing h3 {
+margin-bottom: 25px;
+}
+
+/* Second part */
+#service {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    margin-bottom: 100px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+.service-background{ 
+    padding: 53px 50px;
+    max-width: 460px;
+    background-color: var(--background-service);
+    width: 100%;
+}
+.service-background h3 {
+    margin-bottom: 25px;
+}
+.i-service-1 {
+    margin-bottom: 40px;
+    font-size: 3rem;
+}
+.i-service-2 {
+    padding: 80px 30px;
+    font-size: 5rem;
+    text-align: center;
+    width: 100%;
+}
+#service-left {
+    margin-bottom: 50px;
     
+}
+#service-left  p{
+    margin-bottom: 30px;
+}
+#service-left ul {
+    margin-bottom: 30px;
+    padding-left: 17px;
+}
+#service-left a {
+    padding: 10px 35px;
+    text-align: right !important;
+    width: 100%;
+    display: block;
+}
+#service-left a:hover {
+    color: var(--color-text);
+}
+#service-mid p, #service-right p{
+    margin-bottom: 50px;
+}
+#service-mid button, #service-right button{
+    font-size: 1.2rem;
+padding: 10px 35px;
+border: none;
+color: white;
+text-align: center;
+margin: 0 25%;
+}
+#service-mid button {
+    background-color: #399;
+}
+#service-mid button:hover {
+background-color: #2d827f;
+}
+#service-right button {
+    background-color: #6d71c6;
+}
+#service-right button:hover {
+    background-color: #6d71c6;
+}
+
+/* Avis customer */
+#customers {
+    margin-bottom: 135px;
+    text-align: center;
+}
+#customers h2{
+    font-size: 2.5rem;
+    margin-bottom: 70px;
+}
+
+
+/* Footer */
+footer {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 291px 40px;
+    grid-column-gap: 30px;
+    grid-row-gap: 80px;
+    padding-bottom: 55px;
+
+}
+footer>h3 {
+    margin-bottom: 30px;
+}
+.useful-readings>ul, .our-page>ul, .menu-footer>ul, .about>ul {
+    padding-left: 17px;
+    margin-bottom: 1rem;
+}
+.about>p{
+    margin-bottom: 30px;
+}
+#social-media>ul {
+    display: flex;
+    flex-direction: row;
+}
+.social-link {
+    transition: all 0.3s;
+}
+.fab:hover {
+    color: #0056b3;
+}
+.fab {
+    width: 40px;
+    height: 40px;
+}
+#copyright {
+    grid-column: 1 / span 4;
+    grid-row: 2;
+    justify-self: center;
 }
