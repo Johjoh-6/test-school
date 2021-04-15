@@ -403,7 +403,12 @@ h1 {
 #mid-intro {
     grid-area: mid-intro;
 }
-
+#contact-us-link {
+    color: var(--a-color);
+}
+#contact-us-link:hover {
+  color: #0056b3;
+}
 #right-intro {
     grid-area: right-intro;
 }
@@ -443,7 +448,12 @@ h1 {
     margin-bottom: 40px;
     font-size: 3rem;
 }
-
+#more-link {
+    color: var(--h-color);  
+}
+#more-link:hover {
+    color: var(--color-text);  
+}
 .i-service-2 {
     padding: 80px 30px;
     font-size: 5rem;
@@ -481,8 +491,8 @@ h1 {
     margin-bottom: 50px;
 }
 
-#service-mid button,
-#service-right button {
+#read-more-button-mid,
+#read-more-button-right {
     font-size: 1.2rem;
     padding: 10px 35px;
     border: none;
@@ -491,20 +501,27 @@ h1 {
     margin: 0 25%;
 }
 
-#service-mid button {
+#read-more-button-mid {
     background-color: #399;
 }
 
-#service-mid button:hover {
+#read-more-button-mid:hover {
     background-color: #2d827f;
 }
-
-#service-right button {
-    background-color: #6d71c6;
+#read-more-button-mid:active {
+    background-color: #0069d9;
+border-color: #0062cc;
+}
+#read-more-button-right {
+    background-color: #99C;
 }
 
-#service-right button:hover {
+#read-more-button-right:hover {
     background-color: #6d71c6;
+}
+#read-more-button-right:active {
+background-color: #545b62;
+border-color: #4e555b;
 }
 
 /* Avis customer */
@@ -533,10 +550,7 @@ h1 {
     display: none;
     margin: 0 auto;
     max-width: 50%;
-}
-
-.customer.active {
-    display: block;
+    transition: 0.5s ease;
 }
 
 .customer>h3 {
@@ -582,6 +596,7 @@ h1 {
     width: 15px;
     padding: 5px;
     overflow: hidden;
+    transition: 0.5s ease;
    
 }
 
@@ -629,7 +644,18 @@ footer>h3 {
     padding-left: 17px;
     margin-bottom: 1rem;
 }
-
+.useful-readings>ul>li>a,
+.our-page>ul>li>a,
+.menu-footer>ul>li>a,
+.about>ul>li>a {
+    color: var(--color-text);
+} 
+.useful-readings>ul>li>a:hover,
+.our-page>ul>li>a:hover,
+.menu-footer>ul>li>a:hover,
+.about>ul>li>a:hover {
+    color: var(--h-color);
+} 
 .about>p {
     margin-bottom: 30px;
 }
